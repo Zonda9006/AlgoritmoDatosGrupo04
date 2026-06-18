@@ -1,4 +1,0 @@
-1001|Matemática I|0|4|4
-1002|Matemática II|1|4|4
-1003|Desarrollo Web|1|5|4
-1004|Tecnologías de la Información|1|4|3
