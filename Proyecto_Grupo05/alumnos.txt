@@ -1,0 +1,5 @@
+2020100001|70109662|Alvaro|Giraldo|Ing. Ciencia de Datos e IA|935122219|28|2
+2020100002|74851236|Valeria|Rojas|Computación e Informática|987654321|19|2
+2020100003|73196482|Diego|Paredes|Desarrollo de Sistemas de Información|945678123|21|1
+2020100004|76541829|Camila|Torres|Administración de Redes y Comunicaciones|956789234|20|1
+2020100005|71928345|Jose|Huaman|Ciberseguridad|978123456|22|0
