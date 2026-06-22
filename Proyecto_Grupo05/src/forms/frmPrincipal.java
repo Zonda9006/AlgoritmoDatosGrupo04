@@ -35,6 +35,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
     private final JDesktopPane escritorio = new JDesktopPane();
     private JMenuItem mntmMatricula;
     private JMenuItem mntmRetiro;
+    private JMenuItem mntmConsulta;
 
     // Referencia persistente a la ventana de matrícula para sincronizar con frmRetiro
     private frmMatricula ventanaMatricula;
@@ -94,6 +95,9 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
         mnConsulta = new JMenu("Consulta");
         menuBar.add(mnConsulta);
+        mntmConsulta = new JMenuItem("Consulta General");
+        mntmConsulta.addActionListener(this);
+        mnConsulta.add(mntmConsulta);
 
         mnReporte = new JMenu("Reporte");
         menuBar.add(mnReporte);
@@ -135,9 +139,14 @@ public class frmPrincipal extends JFrame implements ActionListener {
         if (e.getSource() == mntmRetiro) {
             actionPerformedMntmRetiro(e);
         }
+        
+        if (e.getSource() == mntmConsulta) {
+            actionPerformedMntmConsulta(e);
+        }
     }
+	
 
-    // Abre la ventana de mantenimiento de cursos
+	// Abre la ventana de mantenimiento de cursos
     protected void actionPerformedMntmCurso(ActionEvent e) {
         frmCursos f = new frmCursos();
         escritorio.add(f);
@@ -179,5 +188,17 @@ public class frmPrincipal extends JFrame implements ActionListener {
         escritorio.add(f);
         f.toFront();
     }
+    
+    private void actionPerformedMntmConsulta(ActionEvent e) {
+  		// Abre el formulario de consultas pasando todas la slistas compartidas
+      	  frmConsulta f = new frmConsulta(listaAlumnos, listaCursos, listaMatriculas, listaRetiros);
+            escritorio.add(f);
+            int x = (contentPane.getWidth() - f.getWidth()) / 2;
+            int y = (contentPane.getHeight() - f.getHeight()) / 2;
+            f.setLocation(x, y);
+            
+            f.show(); 
+            f.toFront();
+        }
     
 }

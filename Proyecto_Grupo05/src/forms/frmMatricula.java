@@ -365,10 +365,25 @@ public class frmMatricula extends JInternalFrame {
             Curso c = listaCursos.obtener(i);
             cboCurso.addItem(c.getCodCurso() + " - " + c.getAsignatura());
         }
+        if (cboCurso.getItemCount() == 0) {
+            cboCurso.addItem("-- No hay cursos registrados --");
+            cboCurso.setEnabled(false);
+        } else {
+            cboCurso.setEnabled(true);
+        }
     }
 
     // Registra una nueva matrícula para el alumno indicado
     private void adicionar() {
+    	
+    	// Validar que haya cursos disponibles antes de continuar 
+    		
+    	if(!cboCurso.isEnabled()) {
+    		JOptionPane.showMessageDialog(this,
+    				"Ingrese cursos activos antes de registrar una matrícula.",
+    				"Sin cursos diaponibles", JOptionPane.WARNING_MESSAGE);
+    		    return;
+    	}
         // FASE 1: Validar entrada del formulario
         String texto = txtCodAlumno.getText().trim();
         if (texto.isEmpty()) {
